@@ -10,7 +10,7 @@
 <ion-content padding>
   <h3>Please log in</h3>
 
-  <p *ngIf="error">{{ error.message }}</p>
+  <ion-item *ngIf="error" class="error" item-centered>{{ error.message }}</ion-item>
   <form (ngSubmit)="login(values)">
     <ion-item>
       <ion-label>Username</ion-label>

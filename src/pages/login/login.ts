@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { Observable } from "rxjs/Observable";
 import { Store } from '@ngrx/store';
 import { UserService } from '../../app/common/services/user.service';
@@ -13,7 +13,7 @@ import { UserError } from '../../app/common/stores/user.store';
   templateUrl: 'login.html',
   providers: [UserService]
 })
-export class LoginPage {
+export class LoginPage implements OnDestroy {
   user: Observable<UserState>;
   error: UserError;
   formValues: Login;
@@ -33,6 +33,13 @@ export class LoginPage {
 
   login() {
     this.userService.loginUser(this.formValues);
+    if (this.error) {
+      this.store.dispatch({ type: 'RESET_LOGIN_ERROR' });
+    }
+  }
+
+  ngOnDestroy() {
+    this.store.dispatch({ type: 'RESET_LOGIN_ERROR' });
   }
 
 }

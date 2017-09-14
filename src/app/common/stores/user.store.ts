@@ -23,6 +23,8 @@ export const user = (state: UserState = initialState, { type, payload }) => {
       return Object.assign({}, state, { user: payload.user });
     case 'LOGIN_ERROR':
       return Object.assign({}, state, { error: payload });
+    case 'RESET_LOGIN_ERROR':
+      return Object.assign({}, state, { error: null });
     default:
       return state;
   }
