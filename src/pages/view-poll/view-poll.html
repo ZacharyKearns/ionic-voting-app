@@ -8,8 +8,15 @@
 </ion-header>
 
 <ion-content padding>
-  <h3>Welcome to the polling app!</h3>
+  <h3>{{ poll?.title }}</h3>
 
-  <polls-list [polls]="polls | async" (selectedPoll)="viewPoll($event)"></polls-list>
+  <h4>Votes</h4>
+
+  <ion-list>
+    <ion-item *ngFor="let option of poll?.options">
+      {{ option.option }}: {{ option.votes }}
+    </ion-item>
+  </ion-list>
+
 
 </ion-content>

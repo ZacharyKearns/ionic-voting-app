@@ -1,0 +1,5 @@
+<ion-list>
+  <button ion-item *ngFor="let poll of polls.activePollList" (click)="selectedPoll.emit(poll._id)">
+    {{ poll.title }}
+  </button>
+</ion-list>

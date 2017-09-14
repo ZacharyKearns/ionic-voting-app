@@ -1,5 +1,6 @@
 {
   "name": "ionic_voting_app",
   "app_id": "",
-  "type": "ionic-angular"
+  "type": "ionic-angular",
+  "integrations": {}
 }
